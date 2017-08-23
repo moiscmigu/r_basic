@@ -1,0 +1,35 @@
+{
+  "components": {
+    "Header": {},
+    "Home": {
+      "attributes": [
+        "name",
+        "age",
+        "greet"
+      ],
+      "props": {
+        "name": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "age": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "description": ""
+        },
+        "greet": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        }
+      }
+    }
+  }
+}

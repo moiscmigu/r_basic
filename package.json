@@ -6,7 +6,8 @@
   "scripts": {
     "start": "npm run build",
     "build": "webpack -d && cp src/index.html dist/index.html && webpack-dev-server --content-base src/ --inline",
-    "build:prod": "webpack -p && cp src/index.html dist/index.html"
+    "build:prod": "webpack -p && cp src/index.html dist/index.html",
+    "generate": "rc-autocomplete"
   },
   "author": "Moises",
   "license": "ISC",
@@ -23,7 +24,16 @@
     "babel-preset-stage-2": "^6.24.1",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-plugin-react": "^7.2.1",
+    "react-autocomplete-cli": "0.0.3",
     "webpack": "^3.5.5",
     "webpack-dev-server": "^2.7.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moiscmigu/r_basic.git"
+  },
+  "bugs": {
+    "url": "https://github.com/moiscmigu/r_basic/issues"
+  },
+  "homepage": "https://github.com/moiscmigu/r_basic#readme"
 }

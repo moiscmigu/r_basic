@@ -13,6 +13,7 @@ class App extends React.Component {
         };//end of state
     }
 
+
     onGreet() {
         alert('hello');
     }//end of onGreet function
@@ -41,7 +42,6 @@ class App extends React.Component {
                             initialAge={27}
                             greet={this.onGreet}
                             changeLink={this.onChangeLinkName.bind(this)}
-                            initialLinkName={this.state.homeLink}
                         />
 
                     </div>
