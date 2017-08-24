@@ -9,7 +9,7 @@ class App extends React.Component {
     constructor() {
         super();
         this.state = {
-            homeLink:"Home"
+            homeLink:"Hello"
         };//end of state
     }
 
@@ -19,6 +19,7 @@ class App extends React.Component {
     }//end of onGreet function
 
     onChangeLinkName(newName) {
+        console.log('this is the new name', newName)
         this.setState({
             homeLink:newName
         });//end os setState
@@ -34,7 +35,6 @@ class App extends React.Component {
                         <Header homeLink={this.state.homeLink}/>
                     </div>
                 </div>
-
                 <div className='row'>
                     <div className='col-xs-10 col-xs-offset-1'>
                         <Home

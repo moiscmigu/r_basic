@@ -19,7 +19,7 @@ export class Home extends React.Component {
 
     onMakeOlder() {
         //allows to change state and the DOM Rerenders if state is changed
-        this.setState({
+            this.setState({
             age:this.state.age + 3
         });//end of setState
     }//end of make older
@@ -29,6 +29,14 @@ export class Home extends React.Component {
         this.props.changeLink(this.state.homeLink);
     }//end of onChangeName
 
+    handleOnChangeName(event) {
+
+        this.setState({
+            homeLink:event.target.value
+        });//end of end changeLink
+
+        console.log('changed', this.state.homeLink);
+    }//end of handleOnChangeName
 
 
     render() {
@@ -42,7 +50,8 @@ export class Home extends React.Component {
                 <hr/>
                 <button onClick={this.props.greet} className='btn btn-primary'>Greet</button>
                 <hr/>
-                <input type='text' value={this.props.changeLink}/>
+                <input type='text' onChange={(event) => this.handleOnChangeName(event)}/>
+                <button onClick={this.onChangeLink.bind(this)}>Change the headers </button>
             </div>
 
         );
