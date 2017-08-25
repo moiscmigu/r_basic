@@ -1,57 +1,54 @@
 import React from 'react';
-import {render} from 'react-dom';
-import {Header} from './components/Header';
-import {Home} from './components/Home';
+import ReactDOM from 'react-dom';
+import {User} from './components/User';
 
+class Game extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state= {
+            gameStatus:true
+        };//end if state
+    }//end of constructor
 
-class App extends React.Component {
-
-    constructor() {
-        super();
-        this.state = {
-            homeLink:"Hello"
-        };//end of state
+    startGame(event) {
+        console.log('the game is starting');
+        this.setState({
+            gameStatus:true
+        })
     }
 
-
-    onGreet() {
-        alert('hello');
-    }//end of onGreet function
-
-    onChangeLinkName(newName) {
-        console.log('this is the new name', newName)
+    endGame(event) {
         this.setState({
-            homeLink:newName
-        });//end os setState
-    }//end of changeLinkName
+            gameStatus:false
+        })
+        console.log('The game is over');
+    }
 
     render() {
+        let defaultGame = <div className='container'>
+        <h3>Not starting yet</h3>
+            <button onClick={(event) => this.startGame(event)}>Start</button>
+            <button onClick={(event) => this.endGame(event)}>Quit</button>
+        </div>
 
-        return (
-            <div className='container'>
+            if (this.state.gameStatus === true) {
+                console.log('returning this');
+                    return  (<User name={prompt('What is your name')}/>)
+            } else if (this.state.gameStatus === false) {
+                return <h3>You quit the game</h3>
+            } else {
+                console.log('returning this not stating')
+                    return (defaultGame)
 
-                <div className='row'>
-                    <div className='col-xs-10 col-xs-offset-1'>
-                        <Header homeLink={this.state.homeLink}/>
-                    </div>
-                </div>
-                <div className='row'>
-                    <div className='col-xs-10 col-xs-offset-1'>
-                        <Home
-                            name={"max"}
-                            initialAge={27}
-                            greet={this.onGreet}
-                            changeLink={this.onChangeLinkName.bind(this)}
-                        />
-
-                    </div>
-                </div>
-
-            </div>
+            }
 
 
-        )//end of return
-    }//end of render
-}//end of App Class
 
-render(<App/>, document.getElementById('app'));
+
+
+    }
+}//end of App component
+
+
+
+ReactDOM.render(<Game/>, document.getElementById('app'))
